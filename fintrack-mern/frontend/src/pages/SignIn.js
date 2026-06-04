@@ -8,7 +8,7 @@ export default function SignIn() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const { login, authFetch } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,9 +17,8 @@ export default function SignIn() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/signin', {
+      const res = await authFetch('/auth/signin', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
