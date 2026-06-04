@@ -2,14 +2,16 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 
 const AuthContext = createContext(null);
 
-const API_BASE = '/api';
+// Use environment variable for API URL
+const API_BASE = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api` : 'http://localhost:5000/api';
+
+console.log('API_BASE:', API_BASE); // Debug
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(() => localStorage.getItem('authToken'));
   const [loading, setLoading] = useState(true);
 
-  // Verify token on mount
   useEffect(() => {
     const verifyToken = async () => {
       if (!token) {
@@ -33,7 +35,6 @@ export function AuthProvider({ children }) {
       }
     };
     verifyToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const login = useCallback((newToken, userData) => {
@@ -48,7 +49,6 @@ export function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
-  // Generic authenticated fetch helper
   const authFetch = useCallback(
     async (url, options = {}) => {
       const res = await fetch(`${API_BASE}${url}`, {
