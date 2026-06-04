@@ -11,7 +11,14 @@ const transactionRoutes = require('./routes/transactions');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://expensive-tracker-eight.vercel.app',
+    process.env.CLIENT_URL
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
