@@ -11,7 +11,6 @@ const transactionRoutes = require('./routes/transactions');
 const app = express();
 
 // Middleware
-// Updated CORS for Vercel deployment
 app.use(cors());
 app.use(express.json());
 
@@ -36,11 +35,9 @@ mongoose
     console.error('❌ MongoDB connection failed:', err.message);
   });
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-}
+// Always listen on PORT
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
-// Export for Vercel
+// Export for Vercel (optional)
 module.exports = app;
