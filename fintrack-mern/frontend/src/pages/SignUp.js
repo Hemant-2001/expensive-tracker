@@ -10,7 +10,7 @@ export default function SignUp() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const { login, authFetch } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -24,9 +24,8 @@ export default function SignUp() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/signup', {
+      const res = await authFetch('/auth/signup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password }),
       });
 
