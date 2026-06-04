@@ -1,0 +1,445 @@
+:root {
+    /* DEFAULT (DARK MODE) PALETTE */
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --bg-color: #1e1e2f;
+    --card-bg: #27293d;
+    --text-color: #f0f0f0;
+    --input-bg: #32354a;
+    --border-color: #444760;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --border-radius: 12px;
+}
+
+/* --- LIGHT MODE OVERRIDES --- */
+.light-mode {
+    --bg-color: #f8f9fa;
+    /* Light background */
+    --card-bg: #ffffff;
+    /* White cards */
+    --text-color: #212529;
+    /* Dark text */
+    --input-bg: #e9ecef;
+    /* Light gray inputs */
+    --border-color: #dee2e6;
+    /* Subtle light border */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow */
+}
+
+/* --- Base Styles (No changes below this line, they inherit the root variables) --- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition */
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--card-bg);
+    /* Use card background for contrast */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h2,
+nav a,
+nav button {
+    color: var(--text-color);
+    /* Use general text color */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav a,
+nav button {
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav a:hover,
+nav button:hover {
+    background-color: var(--input-bg);
+    /* Use input background for hover effect */
+}
+
+nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+/* --- Layout and Cards (Main Content) --- */
+.container {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    /* Added subtle border for light mode contrast */
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    .container:not(.profile-layout) {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.profile-layout {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+}
+
+.profile-card,
+#change-password-section {
+    grid-column: 1 / -1;
+}
+
+/* --- Forms & Inputs --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-primary-full {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary-full:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* --- Controls/Filters Bar --- */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Transaction List --- */
+#transactions-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.transaction-item:hover {
+    background-color: var(--input-bg);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item .icon {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.transaction-item .details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-item .desc {
+    font-weight: 600;
+}
+
+.transaction-item .date {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+.transaction-item .amount {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.income .icon {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--success-color);
+}
+
+.income .amount {
+    color: var(--success-color);
+}
+
+.expense .icon {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--danger-color);
+}
+
+.expense .amount {
+    color: var(--danger-color);
+}
+
+/* --- Profile Page Styling --- */
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-avatar i {
+    color: var(--primary-color);
+}
+
+.profile-details-list {
+    background-color: var(--input-bg);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.profile-detail {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-detail:last-of-type {
+    border-bottom: none;
+}
+
+.profile-detail strong {
+    color: var(--primary-color);
+}
+
+.profile-detail strong i {
+    margin-right: 8px;
+}
+
+.separator {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.profile-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.profile-actions button {
+    flex-grow: 1;
+}
+
+/* --- Auth Page Styling --- */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+}
+
+.logo-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-center i {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.logo-center h2 {
+    font-size: 1.5rem;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-links span {
+    color: #999;
+    margin: 0 8px;
+}
+
+
+
+/* Update the .auth-card styles in your css/style.css file */
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+
+    /* --- ADD CARD BACKGROUND IMAGE STYLES HERE --- */
+    background-image: url('../public/fin.jpg');
+    /* Path to your card background image */
+    background-size: cover;
+    /* or 'contain', or specific pixel values like '100% auto' */
+    background-position: center;
+    /* Adjust as needed: top, bottom, left, right */
+    background-repeat: no-repeat;
+
+    /* Overlay for better text readability, using var(--card-bg) for theme consistency */
+    background-color: var(--card-bg);
+    /* Fallback color + ensures text readability */
+    background-blend-mode: overlay;
+    /* Blends the image with the card's background color */
+    /* ------------------------------------------- */
+
+    /* Ensure card properties remain for styling */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    /* Added subtle border for light mode contrast */
+}
+
+/* Optional: Adjust background image for light mode if it's too dark or needs inverse */
+.light-mode .auth-card {
+    /* If your background image is dark and needs to be lighter in light mode */
+    /* background-image: url('../img/auth_card_bg_light.png'); */
+
+    /* Or, if you want a different blend mode or opacity */
+    background-blend-mode: luminosity;
+    /* Example: different blend mode for light theme */
+    opacity: 0.95;
+    /* Slightly less opaque to show more of the light image */
+}
