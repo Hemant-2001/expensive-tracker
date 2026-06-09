@@ -131,6 +131,9 @@ This starts:
 | CSV Download           | home.js downloadCSV()           | Same logic in Dashboard.js          |
 
 ---
+screenshot:-
+<img width="1336" height="573" alt="Screenshot 2026-06-09 155851" src="https://github.com/user-attachments/assets/ca714bdc-79ce-4758-9e44-11cdd54ac03f" />
+
 
 ## Notes
 
