@@ -132,7 +132,16 @@ This starts:
 
 ---
 screenshot:-
+sigin:-
 <img width="1336" height="573" alt="Screenshot 2026-06-09 155851" src="https://github.com/user-attachments/assets/ca714bdc-79ce-4758-9e44-11cdd54ac03f" />
+sigup:-
+<img width="1366" height="720" alt="screencapture-expensive-tracker-eight-vercel-app-signup-2026-06-09-16_03_21" src="https://github.com/user-attachments/assets/e25534df-47cd-4359-9456-f4ed5332ea7b" />
+Dashboard:
+<img width="1366" height="1129" alt="screencapture-expensive-tracker-eight-vercel-app-2026-06-09-16_07_14" src="https://github.com/user-attachments/assets/2af54dfb-88d5-4adc-9626-1dff5f8882a8" />
+profile&change:-
+<img width="1366" height="1104" alt="screencapture-expensive-tracker-eight-vercel-app-profile-2026-06-09-16_08_54" src="https://github.com/user-attachments/assets/1d5cecf4-213b-4e93-b5cb-b36ede209ddf" />
+
+
 
 
 ## Notes
