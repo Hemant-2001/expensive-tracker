@@ -14,7 +14,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://expensive-tracker-git-main-hemant-vishwakarma-s-projects.vercel.app',
+    'https://expensive-tracker-eight.vercel.app/',
     process.env.CLIENT_URL
   ],
   credentials: true,
